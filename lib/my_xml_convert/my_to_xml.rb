@@ -1,4 +1,4 @@
-module my_xml_convert
+module xmlconvert
 	class my_to_xml
 
 		public
