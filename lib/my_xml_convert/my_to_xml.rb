@@ -1,5 +1,5 @@
-module xmlconvert
-	class my_to_xml
+module My_xml_convert
+	class My_to_xml
 
 		public
 
