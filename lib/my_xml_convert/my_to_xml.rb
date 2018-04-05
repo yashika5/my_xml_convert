@@ -5,7 +5,7 @@ module My_xml_convert
 
 			def self.to_xml(name,item) 
 
-				xmlstring = "\"<?xml version=\\\"1.0\\\"encoding=\\\"UTF-8\\\"?>\n"
+				xmlstring = "<?xml version=\"1.0\"encoding=\"UTF-8\"?>\n"
 				indent = 3;
 				if item.is_a?(Hash)
 					xmlstring+= "<Hash>\n"
