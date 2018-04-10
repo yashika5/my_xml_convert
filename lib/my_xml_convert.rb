@@ -5,7 +5,7 @@ module MyXmlConvert
 
   #translates a given object to an XML.
   def self.to_xml(obj, options = {})
-  	ObjtoXML.to_xml obj.dup, options
+  	ObjtoXML.to_xml(obj,"book")
   end
 
 end
