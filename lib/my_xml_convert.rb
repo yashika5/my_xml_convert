@@ -1,6 +1,11 @@
 require "my_xml_convert/version"
-require "my_xml_convert/my_to_xml"
+require "my_xml_convert/ObjtoXML"
 
 module MyXmlConvert
-  # Your code goes here...
+
+  #translates a given object to an XML.
+  def self.to_xml(obj, options = {})
+  	ObjtoXML.to_xml obj.dup, options
+  end
+
 end
