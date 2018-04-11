@@ -4,12 +4,12 @@ require "my_xml_convert/key"
 module MyXmlConvert
         class Array
 
-                def self.array_to_xml(obj, options = {} )
+                def self.array_to_xml(name="",obj, options = {} )
                         xmlstring=""
                         for i in obj do
 
-                                key = options[:name] || "array"
-                                value = MyXmlConvert::Value.create(i,options)
+                                key = name || "array"
+                                value = MyXmlConvert::Value.create(key,i,options)
 
                                 xmlstring+= "<" + key + ">" + value + "</" + key + ">"
 

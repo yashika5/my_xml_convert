@@ -14,27 +14,29 @@ module MyXmlConvert
 
 				xmlstring = "" 
 				xmlstring+= "<?xml version=\"1.0\"encoding=\"UTF-8\"?>" if options[:header]
-				xmlstring+= "<" + options[:name] + ">" if options[:name]				
+				xmlstring+= "<" + options[:name] + ">" if options[:name]
+				name = ""
+				name = options[:name] if options[:name]				
 
-				if options[:type] == "Hash"
+				if ::Hash === obj
 					xmlstring+= "<Hash>"
-					xmlstring+= MyXmlConvert::Hash.hash_to_xml(obj, options)
+					xmlstring+= MyXmlConvert::Hash.hash_to_xml(name,obj, options)
 					xmlstring+= "</Hash>"
-				elsif obj.class == Array
+				elsif ::Array === obj
 					xmlstring+= "<Array>"
-					xmlstring+= MyXmlConvert::Array.array_to_xml(obj, options)
+					xmlstring+= MyXmlConvert::Array.array_to_xml(name,obj, options)
 					xmlstring+= "</Array>"
-				elsif obj.class == String
+				elsif ::String === obj
 					xmlstring+= "<String>"
-					xmlstring+= MyXmlConvert::String.string_to_xml(obj,options)
+					xmlstring+= MyXmlConvert::String.string_to_xml(name,obj,options)
 					xmlstring+= "</String>"
-				elsif obj.class == Fixnum
+				elsif ::Fixnum === obj
 					xmlstring+= "<Fixnum>"
-					xmlstring+= MyXmlConvert::Fixnum.fixnum_to_xml(obj, options)
+					xmlstring+= MyXmlConvert::Fixnum.fixnum_to_xml(name,obj, options)
 					xmlstring+= "</Fixnum>"
 				else
 					xmlstring+= "<Object>"
-                    value = MyXmlConvert::Value.create(obj,options)
+                    value = MyXmlConvert::Value.create(name,obj,options)
 					xmlstring+= value.to_s
                     xmlstring+= "</Object>"
 				end
