@@ -109,7 +109,7 @@ module MyXmlConvert
 			def self.string_to_xml(name,item,indent)
 				xmlstring = ""
 				indent.times { xmlstring+=" " }
-				xmlstring = xmlstring + "<" + name + ">" + item + "</" + name + ">\n"
+				xmlstring = xmlstring + item
 				return xmlstring
 			end
 
