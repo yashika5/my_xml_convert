@@ -35,16 +35,16 @@ module MyXmlConvert
           create object.call
 
         elsif String === object
-          MyXmlConvert::String.to_xml(object, options)
+          MyXmlConvert::String.string_to_xml(object, options)
         
         elsif ::Hash === object
-          MyXmlConvert::Hash.to_xml(object, options)
+          MyXmlConvert::Hash.hash_to_xml(object, options)
 
         elsif ::Array === object
-          MyXmlConvert::Array.to_xml(object, options)
+          MyXmlConvert::Array.array_to_xml(object, options)
 
-	elsif ::Fixnum === object
-          MyXmlConvert::Fixnum.to_xml(object, options)
+	      elsif ::Fixnum === object
+          MyXmlConvert::Fixnum.fixnum_to_xml(object, options)
 
         else
           object.to_s
