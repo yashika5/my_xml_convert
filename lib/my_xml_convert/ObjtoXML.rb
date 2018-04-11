@@ -16,7 +16,7 @@ module MyXmlConvert
 				xmlstring+= "<?xml version=\"1.0\"encoding=\"UTF-8\"?>" if options[:header]
 				xmlstring+= "<" + options[:name] + ">" if options[:name]				
 
-				if obj.class == Hash
+				if obj.instance_of?(Hash)
 					xmlstring+= "<Hash>"
 					xmlstring+= MyXmlConvert::Hash.hash_to_xml(obj, options)
 					xmlstring+= "</Hash>"
