@@ -11,7 +11,7 @@ module MyXmlConvert
                                 key = name || "array"
                                 value = MyXmlConvert::Value.create(key,i,options)
 
-                                xmlstring+= "<" + key + ">" + value + "</" + key + ">"
+                                xmlstring+= value 
 
                         end
                         return xmlstring

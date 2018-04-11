@@ -23,7 +23,8 @@ module MyXmlConvert
           xml_key = xml_key.split(":").last
         end
 
-        xml_key = key_converter(options, xml_key).call(xml_key) if Symbol === key
+        a = key_converter(options, xml_key)
+        xml_key = a.call(xml_key) if Symbol === key
 
         return xml_key
       end
