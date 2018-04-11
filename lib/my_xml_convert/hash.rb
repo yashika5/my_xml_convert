@@ -4,7 +4,7 @@ require "my_xml_convert/key"
 module MyXmlConvert
 	class Hash
 
-		def self.hash_to_xml(name="",obj, options = {} )
+		def self.hash_to_xml(name , obj , options = {} )
 			xmlstring=""
 			for i in obj.keys do
 				
