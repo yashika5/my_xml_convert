@@ -4,7 +4,7 @@ require "my_xml_convert/key"
 module MyXmlConvert
         class Array
 
-                def self.array_to_xml(name="",obj, options = {} )
+                def self.array_to_xml(name,obj, options = {} )
                         xmlstring=""
                         for i in obj do
 

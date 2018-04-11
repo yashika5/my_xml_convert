@@ -18,7 +18,7 @@ module MyXmlConvert
       XS_DATETIME_FORMAT = "%Y-%m-%dT%H:%M:%S%Z"
 
       # Converts a given value to an XML value.
-      def create(name="",object, options = {} )
+      def create(name,object, options = {} )
         if Date === object
           object.strftime XS_DATE_FORMAT
 

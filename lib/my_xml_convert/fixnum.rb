@@ -1,7 +1,7 @@
 module MyXmlConvert
         class Fixnum
 
-                def self.fixnum_to_xml(name="",obj, options = {})
+                def self.fixnum_to_xml(name,obj, options = {})
                         xmlstring = ""
                         xmlstring = xmlstring + "<" + name + ">" if name
                         xmlstring = xmlstring + obj.to_s

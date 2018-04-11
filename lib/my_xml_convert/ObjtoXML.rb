@@ -15,7 +15,7 @@ module MyXmlConvert
 				xmlstring = "" 
 				xmlstring+= "<?xml version=\"1.0\"encoding=\"UTF-8\"?>" if options[:header]
 				xmlstring+= "<" + options[:name] + ">" if options[:name]
-				name = ""
+				name = "xml"
 				name = options[:name] if options[:name]				
 
 				if ::Hash === obj
