@@ -12,6 +12,7 @@ module MyXmlConvert
 
 			def self.to_xml(obj, options = {} )
 
+				puts obj.class
 				xmlstring = "" 
 				xmlstring+= "<?xml version=\"1.0\"encoding=\"UTF-8\"?>" if options[:header]
 				xmlstring+= "<" + options[:name] + ">" if options[:name]				
