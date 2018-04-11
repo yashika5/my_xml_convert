@@ -7,9 +7,7 @@ module MyXmlConvert
 			xmlstring = ""
 			escape_xml = options[:escape_xml]
 			obj = escape_xml ? CGI.escapeHTML(obj) : obj
-			xmlstring = xmlstring + "<" + name + ">" if name
 			xmlstring = xmlstring + obj 
-			xmlstring = xmlstring + "</" + name + ">" if name
 			return xmlstring
 		end
 
