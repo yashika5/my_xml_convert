@@ -1,6 +1,7 @@
 require 'my_xml_convert'
-require 'my_xml_convert/my_to_xml'
-describe My_xml_convert::My_to_xml do
+require 'my_xml_convert/ObjtoXML'
+
+describe MyXmlConvert.to_xml do
 
   it "array to xml" do
     @book = [1,2,3,4,5]

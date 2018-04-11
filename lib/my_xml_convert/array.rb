@@ -9,6 +9,7 @@ module MyXmlConvert
                         for i in obj do
 
                                 key = name || "array"
+                                key = "array" if key == "xml" 
                                 value = MyXmlConvert::Value.create(key,i,options)
 
                                 xmlstring+= "<" + key + ">" + value + "</" + key + ">"
