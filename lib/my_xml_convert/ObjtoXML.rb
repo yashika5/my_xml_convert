@@ -20,23 +20,26 @@ module MyXmlConvert
 					xmlstring+= "<Hash>"
 					xmlstring+= MyXmlConvert::Hash.hash_to_xml(obj, options)
 					xmlstring+= "</Hash>"
-				elsif obj.is_a?(Array)
+				end
+				if obj.is_a?(Array)
 					xmlstring+= "<Array>"
 					xmlstring+= MyXmlConvert::Array.array_to_xml(obj, options)
 					xmlstring+= "</Array>"
-				elsif obj.is_a?(String)
+				end
+				if obj.is_a?(String)
 					xmlstring+= "<String>"
 					xmlstring+= MyXmlConvert::String.string_to_xml(obj,options)
 					xmlstring+= "</String>"
-				elsif obj.is_a?(Fixnum)
+				end
+				if obj.is_a?(Fixnum)
 					xmlstring+= "<Fixnum>"
 					xmlstring+= MyXmlConvert::Fixnum.fixnum_to_xml(obj, options)
 					xmlstring+= "</Fixnum>"
 				else
 					xmlstring+= "<Object>"
-                                        value = MyXmlConvert::Value.create(obj,options)
+                    value = MyXmlConvert::Value.create(obj,options)
 					xmlstring+= value.to_s
-                                        xmlstring+= "</Object>"
+                    xmlstring+= "</Object>"
 				end
 
 				xmlstring+= "</" + options[:name] + ">" if options[:name]
