@@ -17,22 +17,19 @@ module MyXmlConvert
 				xmlstring+= "<?xml version=\"1.0\"encoding=\"UTF-8\"?>" if options[:header]
 				xmlstring+= "<" + options[:name] + ">" if options[:name]				
 
-				if obj.is_a?(Hash)
+				if obj.class == Hash
 					xmlstring+= "<Hash>"
 					xmlstring+= MyXmlConvert::Hash.hash_to_xml(obj, options)
 					xmlstring+= "</Hash>"
-				end
-				if obj.is_a?(Array)
+				elsif obj.class == Array
 					xmlstring+= "<Array>"
 					xmlstring+= MyXmlConvert::Array.array_to_xml(obj, options)
 					xmlstring+= "</Array>"
-				end
-				if obj.is_a?(String)
+				elsif obj.class == String
 					xmlstring+= "<String>"
 					xmlstring+= MyXmlConvert::String.string_to_xml(obj,options)
 					xmlstring+= "</String>"
-				end
-				if obj.is_a?(Fixnum)
+				elsif obj.class == Fixnum
 					xmlstring+= "<Fixnum>"
 					xmlstring+= MyXmlConvert::Fixnum.fixnum_to_xml(obj, options)
 					xmlstring+= "</Fixnum>"
