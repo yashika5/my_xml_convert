@@ -69,5 +69,12 @@ describe MyXmlConvert::Hash do
       expect(result).to include("<tag>&lt;tag/&gt;</tag>")
       expect(result).to include("<some><nested>&lt;tag/&gt;</nested></some>")
     end
+
+    it "calls to_s on any other Object" do
+      [true, false].each do |object|
+        expect(MyXmlConvert::Hash.hash_to_xml("test",{:some => object})).to eq("<some>#{object}</some>")
+      end
+    end
+
   end
 end
