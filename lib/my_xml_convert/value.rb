@@ -19,7 +19,6 @@ module MyXmlConvert
 
       # Converts a given value to an XML value.
       def create(name,object, options = {} )
-        puts object.class
         if DateTime === object
           object.strftime XS_DATETIME_FORMAT
 
@@ -29,7 +28,7 @@ module MyXmlConvert
         elsif Date === object
           object.strftime XS_DATE_FORMAT
 
-        elsif String === object
+        elsif ::String === object
           puts "correct"
           MyXmlConvert::String.string_to_xml(name,object, options)
         
