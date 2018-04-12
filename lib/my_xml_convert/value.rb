@@ -19,14 +19,14 @@ module MyXmlConvert
 
       # Converts a given value to an XML value.
       def create(name,object, options = {} )
-        if Date === object
-          object.strftime XS_DATE_FORMAT
+        if DateTime === object
+          object.strftime XS_DATETIME_FORMAT
 
         elsif Time === object
           object.strftime XS_TIME_FORMAT
 
-        elsif DateTime === object
-          object.strftime XS_DATETIME_FORMAT
+        elsif Date === object
+          object.strftime XS_DATE_FORMAT
 
         elsif object.respond_to?(:to_datetime)
           create object.to_datetime

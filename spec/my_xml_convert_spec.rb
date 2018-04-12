@@ -52,6 +52,43 @@ describe "MyXmlConvert.to_xml" do
     expect(xml).to include("<PASS_WORD>secret</PASS_WORD>")
   end
 
+  it "don't converts Strings keys" do
+    hash = { :user_name => "finn", "pass_word" => "secret" }
+    xml = MyXmlConvert.to_xml(hash, {key_converter: :upcase})
+
+    expect(xml).to include("<USER_NAME>finn</USER_NAME>")
+    expect(xml).to include("<pass_word>secret</pass_word>")
+  end
+
+  it "when defined key_to_convert only convert this key" do
+    hash = { user_name: "finn", pass_word: "secret" }
+    options = {key_converter: :upcase, key_to_convert: 'user_name'}
+    xml = MyXmlConvert.to_xml(hash, options)
+
+    expect(xml).to include("<USER_NAME>finn</USER_NAME>")
+    expect(xml).to include("<passWord>secret</passWord>")
+  end
+
+  it "accepts key_converter for nested hash" do
+    hash = { user: { user_name: "finn", pass_word: "secret" }}
+    xml = MyXmlConvert.to_xml(hash, {key_converter: :upcase})
+
+    expect(xml).to include("<USER><USER_NAME>finn</USER_NAME>")
+    expect(xml).to include("<PASS_WORD>secret</PASS_WORD></USER>")
+  end
+
+  it "does not modify the original Hash" do
+    hash = {:person => {
+          :first_name => "Lucy",
+          :last_name => "Sky",
+        }
+      }
+      original_hash = hash.dup
+
+      MyXmlConvert.to_xml(hash)
+      expect(original_hash).to eq(hash)
+  end
+  
 end
 
 describe "MyXmlConvert.xml_tag" do
