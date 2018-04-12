@@ -28,12 +28,6 @@ module MyXmlConvert
         elsif Date === object
           object.strftime XS_DATE_FORMAT
 
-        elsif object.respond_to?(:to_datetime)
-          create object.to_datetime
-
-        elsif object.respond_to?(:call)
-          create object.call
-
         elsif String === object
           MyXmlConvert::String.string_to_xml(name,object, options)
         
