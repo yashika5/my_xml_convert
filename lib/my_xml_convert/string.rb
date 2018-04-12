@@ -6,6 +6,7 @@ module MyXmlConvert
 		DEFAULT_ESCAPE_XML = true
 		
 		def self.string_to_xml(name,obj, options = {})
+			puts "visited"
 			
 			xmlstring = ""
 			escape_xml = options[:escape_xml].nil? ? true : options[:escape_xml]
