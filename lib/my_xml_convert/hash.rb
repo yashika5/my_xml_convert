@@ -11,6 +11,7 @@ module MyXmlConvert
 				key = MyXmlConvert::Key.create(i,options)
 				name = key
 				value = MyXmlConvert::Value.create(name,obj[i],options)
+				puts value
 		
 				xmlstring+= "<" + key + ">" + value + "</" + key + ">" 
 					
