@@ -66,8 +66,8 @@ describe MyXmlConvert::Hash do
 
     it "defaults to escape special characters" do
       result = MyXmlConvert::Hash.hash_to_xml("test",{:some => { :nested => "<tag/>" }, :tag => "<tag/>"})
-      expect(result).to include("<tag>&lt;tag /&gt;</tag>")
-      expect(result).to include("<some><nested>&lt;tag /&gt;</nested></some>")
+      expect(result).to include("<tag>&lt;tag/&gt;</tag>")
+      expect(result).to include("<some><nested>&lt;tag/&gt;</nested></some>")
     end
   end
 end

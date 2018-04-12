@@ -29,7 +29,6 @@ module MyXmlConvert
           object.strftime XS_DATE_FORMAT
 
         elsif ::String === object
-          puts "correct"
           MyXmlConvert::String.string_to_xml(name,object, options)
         
         elsif ::Hash === object
